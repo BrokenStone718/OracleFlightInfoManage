@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import DAO.UserDAO;
+import utils.StringTools;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -51,6 +52,8 @@ public class mainFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public mainFrame() {
+		setTitle("\u822A\u73ED\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
+		setResizable(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 596, 466);
@@ -115,6 +118,22 @@ public class mainFrame extends JFrame {
 	protected void loginActionPerformed(ActionEvent e) {
 		String username = userText.getText();
 		String pwd = new String(pwdText.getPassword());
+		if(StringTools.isEmpty(username)) {
+			JOptionPane.showMessageDialog(null, "用户名不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckUserName(username)) {
+			JOptionPane.showMessageDialog(null, "用户名不规范，格式为5-16位数字和字母");
+			return;
+		}
+		if(StringTools.isEmpty(pwd)) {
+			JOptionPane.showMessageDialog(null, "密码不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckPassword(pwd)) {
+			JOptionPane.showMessageDialog(null, "密码不规范，格式为5-18位数字和字母");
+			return;
+		}
 		String userID = "";
 		String authorization = IDconfirm.getSelectedItem().toString();
 		if(authorization.equals("管理员")) {//管理员登陆

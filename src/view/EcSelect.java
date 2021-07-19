@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 import DAO.UserDAO;
 import User.Flight;
+import utils.StringTools;
 
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -101,6 +102,10 @@ public class EcSelect extends JInternalFrame {
 	//按目的地查询事件
 	protected void ECselectActionPerformed(ActionEvent e) {
 		String ec = ECtxt.getText();
+		if(StringTools.isEmpty(ec)) {
+			JOptionPane.showMessageDialog(null, "不能为空");
+			return;
+		}
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);//设置成0行
 		List<Flight> b = UserDAO.getECList(ec);

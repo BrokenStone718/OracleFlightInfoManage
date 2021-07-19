@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 import DAO.UserDAO;
 import User.Flight;
+import utils.StringTools;
 
 public class UpdateFrame extends JInternalFrame {
 	private JTable table;
@@ -198,13 +199,24 @@ public class UpdateFrame extends JInternalFrame {
 		String SFYW = SFYWtxt.getText();
 		String SFCS = SFCStxt.getText();
 		String MDD = MDDtxt.getText();
-		int i = UserDAO.update(HBH,HZL,HJT,JZXM,YJFXSJ,SFYW,SFCS,MDD);
-		if(i!=0) {
-			JOptionPane.showMessageDialog(null, "修改成功");
-			fillTable();
-		}else {
-			JOptionPane.showMessageDialog(null, "修改失败");
+		if(StringTools.isEmpty(HBH)) {
+			JOptionPane.showMessageDialog(null, "请选择要修改的数据");
+			return;
 		}
+		int input = JOptionPane.showConfirmDialog(null, "你确定要修改吗？");
+		if(input == 0) {
+			int i = UserDAO.update(HBH,HZL,HJT,JZXM,YJFXSJ,SFYW,SFCS,MDD);
+			if(i!=0) {
+				JOptionPane.showMessageDialog(null, "修改成功");
+				fillTable();
+			}else {
+				JOptionPane.showMessageDialog(null, "修改失败");
+			}
+		}else{
+			return;
+		}
+		
+		
 		
 	}
 

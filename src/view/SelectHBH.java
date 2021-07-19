@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 import DAO.UserDAO;
 import User.Flight;
+import utils.StringTools;
 
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -101,6 +102,10 @@ public class SelectHBH extends JInternalFrame {
 
 	protected void HBHselectActionPerformed(ActionEvent e) {
 		String hbh = HBHtxt.getText();
+		if(StringTools.isEmpty(hbh)) {
+			JOptionPane.showMessageDialog(null, "不能为空");
+			return;
+		}
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);//设置成0行
 		List<Flight> b = UserDAO.getHBHList(hbh);

@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import DAO.UserDAO;
+import utils.StringTools;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -46,7 +47,7 @@ public class regFrame extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame.sdaslkdjas
 	 */
 	public regFrame() {
 		setForeground(SystemColor.activeCaption);
@@ -127,6 +128,30 @@ public class regFrame extends JFrame {
 		String username = userTXT.getText();
 		String pwd = pwdTXT.getText();
 		String pwd2 = confirmTXT.getText();
+		if(StringTools.isEmpty(username)) {
+			JOptionPane.showMessageDialog(null, "用户名不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckUserName(username)) {
+			JOptionPane.showMessageDialog(null, "用户名不规范，格式为5-16位数字和字母");
+			return;
+		}
+		if(StringTools.isEmpty(pwd)) {
+			JOptionPane.showMessageDialog(null, "密码不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckPassword(pwd)) {
+			JOptionPane.showMessageDialog(null, "密码不规范，格式为5-18位数字和字母");
+			return;
+		}
+		if(StringTools.isEmpty(pwd2)) {
+			JOptionPane.showMessageDialog(null, "密码不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckPassword(pwd2)) {
+			JOptionPane.showMessageDialog(null, "密码不规范，格式为5-18位数字和字母");
+			return;
+		}
 		if(pwd.equals(pwd2)) {
 			int i = UserDAO.reg(username,pwd);
 			if(i!=0) {

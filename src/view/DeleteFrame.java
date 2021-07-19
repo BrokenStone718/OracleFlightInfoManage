@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import DAO.UserDAO;
 import User.Flight;
+import utils.StringTools;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -204,14 +205,22 @@ public class DeleteFrame extends JInternalFrame {
 		String SFYW = SFYWtxt.getText();
 		String SFCS = SFCStxt.getText();
 		String MDD = MDDtxt.getText();
-		int i = UserDAO.delete(HBH,HZL,HJT,JZXM,YJFXSJ,SFYW,SFCS,MDD);
-		if(i!=0) {
-			JOptionPane.showMessageDialog(null, "删除成功");
-			fillTable();
-		}else {
-			JOptionPane.showMessageDialog(null, "删除失败");
+		if(StringTools.isEmpty(HBH)) {
+			JOptionPane.showMessageDialog(null, "请选择要删除的数据");
+			return;
 		}
-		
+		int input = JOptionPane.showConfirmDialog(null, "你确定要删除吗？");
+		if(input == 0) {
+			int i = UserDAO.delete(HBH,HZL,HJT,JZXM,YJFXSJ,SFYW,SFCS,MDD);
+			if(i!=0) {
+				JOptionPane.showMessageDialog(null, "删除成功");
+				fillTable();
+			}else {
+				JOptionPane.showMessageDialog(null, "删除失败");
+			}
+		}else{
+			return;
+		}
 	}
 
 	//单击后将信息添加到文本框中

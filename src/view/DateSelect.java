@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 import DAO.UserDAO;
 import User.Flight;
+import utils.StringTools;
 
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -52,10 +53,10 @@ public class DateSelect extends JInternalFrame {
 		setBounds(100, 100, 651, 477);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("\u8F93\u5165\u76EE\u7684\u5730");
+		JLabel lblNewLabel = new JLabel("\u8F93\u5165\u8D77\u98DE\u65F6\u95F4");
 		lblNewLabel.setIcon(new ImageIcon(DateSelect.class.getResource("/image/\u5EF6\u8BEF.png")));
 		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 14));
-		lblNewLabel.setBounds(124, 31, 99, 28);
+		lblNewLabel.setBounds(103, 31, 120, 28);
 		getContentPane().add(lblNewLabel);
 		
 		DATEtxt = new JTextField();
@@ -104,6 +105,10 @@ public class DateSelect extends JInternalFrame {
 	//按时间查询事件
 	protected void DATEselectActionPerformed(ActionEvent e) {
 		String dt = DATEtxt.getText();
+		if(StringTools.isEmpty(dt)) {
+			JOptionPane.showMessageDialog(null, "不能为空");
+			return;
+		}
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);//设置成0行
 		List<Flight> b = UserDAO.getDATEList(dt);
