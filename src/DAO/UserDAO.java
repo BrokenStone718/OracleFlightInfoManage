@@ -7,6 +7,7 @@ import java.util.List;
 
 
 import User.Flight;
+import User.Userinfo;
 import utils.DBTools;
 import utils.jdbc_utils;
 
@@ -152,6 +153,40 @@ public class UserDAO {
 		String sql = "update flight_info set \"HZL\"= ? , \"HJT\"= ? , \"JZXM\" = ? , \"SFYW\" = ? , \"YJFXSJ\" = ? , \"SFCS\" = ? , \"MDD\" = ? where \"HBH\" = ?";
 		int i = jdbc_utils.executeUpdate(sql,hZL,hJT,jZXM,sFYW,yJFXSJ,sFCS,mDD,hBH);
 		return i;
+	}
+
+	
+
+	public static List<Userinfo> getUserList(String username, String oldpwd) {
+		String sql = "select * from user_info where \"USERNAME\"= ? and \"PASSWORD\" = ?";
+		ResultSet rs = jdbc_utils.executeQueryRS(sql, username,oldpwd);
+		List<Userinfo> list = new ArrayList<Userinfo>();
+		try {
+			while(rs.next()) {
+				String USERNAME = rs.getString("USERNAME");
+				String PASSWORD = rs.getString("PASSWORD");
+				Userinfo ui = new Userinfo(USERNAME,PASSWORD);
+				
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}finally {
+			DBTools.close(null, null, rs);
+		}
+		return list;
+	}
+
+	public static int updateUserinfo(String username, String newpwd) {
+		String sql = "update user_info set \"PASSWORD\" = ? where \"USERNAME\"=?";
+		int i = jdbc_utils.executeUpdate(sql, newpwd,username);
+		return i;
+	}
+
+	public static int confirm(String username, String oldpwd) {
+		String sql = "select * from user_info where \"USERNAME\"= ? and \"PASSWORD\" = ?";
+		int j = jdbc_utils.executeUpdate(sql, username,oldpwd);
+		return j;
 	}
 
 }

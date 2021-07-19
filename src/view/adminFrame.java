@@ -111,8 +111,11 @@ public class adminFrame extends JFrame {
 	}
 
 	
+	//ĞŞ¸ÄÃÜÂëÊÂ¼ş
 	protected void updatepwdActionPerformed(ActionEvent e) {
-		
+		UpdatePWD up = new UpdatePWD();
+		up.setVisible(true);
+		table.add(up);
 		
 	}
 

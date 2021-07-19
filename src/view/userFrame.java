@@ -61,6 +61,14 @@ public class userFrame extends JFrame {
 		});
 		mnNewMenu.add(out);
 		
+		JMenuItem mntmNewMenuItem = new JMenuItem("\u4FEE\u6539\u5BC6\u7801");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updatePWDactionPerformed(e);
+			}
+		});
+		mnNewMenu.add(mntmNewMenuItem);
+		
 		JMenu mnNewMenu_1 = new JMenu("\u4E8B\u52A1");
 		menuBar.add(mnNewMenu_1);
 		
@@ -80,6 +88,14 @@ public class userFrame extends JFrame {
 		table.setBackground(Color.WHITE);
 		table.setBounds(10, 10, 687, 486);
 		contentPane.add(table);
+	}
+
+	//修改密码事务
+	protected void updatePWDactionPerformed(ActionEvent e) {
+		UpdatePWD up = new UpdatePWD();
+		up.setVisible(true);
+		table.add(up);
+		
 	}
 
 	//查询航班事务
