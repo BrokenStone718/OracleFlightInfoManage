@@ -214,10 +214,7 @@ public class UpdateFrame extends JInternalFrame {
 			}
 		}else{
 			return;
-		}
-		
-		
-		
+		}	
 	}
 
 	protected void FlightMousePressed(MouseEvent e) {

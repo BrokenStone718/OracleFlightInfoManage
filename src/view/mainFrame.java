@@ -134,11 +134,9 @@ public class mainFrame extends JFrame {
 			JOptionPane.showMessageDialog(null, "密码不规范，格式为5-18位数字和字母");
 			return;
 		}
-		String userID = "";
 		String authorization = IDconfirm.getSelectedItem().toString();
 		if(authorization.equals("管理员")) {//管理员登陆
-			userID = "1";
-			int i = UserDAO.login(username,pwd,userID);
+			int i = UserDAO.adminlogin(username,pwd);
 			if(i!=0) {//登陆成功
 				JOptionPane.showMessageDialog(null, "登陆成功");
 				this.dispose();
@@ -148,8 +146,8 @@ public class mainFrame extends JFrame {
 			}
 			
 		}else {//普通用户登陆
-			userID = "0";
-			int i = UserDAO.login(username,pwd,userID);
+			
+			int i = UserDAO.userlogin(username,pwd);
 			if(i!=0) {//登陆成功
 				JOptionPane.showMessageDialog(null, "登陆成功");
 				this.dispose();

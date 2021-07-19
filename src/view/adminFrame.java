@@ -46,7 +46,7 @@ public class adminFrame extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("\u7528\u6237\u7BA1\u7406");
+		JMenu mnNewMenu = new JMenu("\u4E2A\u4EBA\u7BA1\u7406");
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem out = new JMenuItem("\u9000\u51FA\u767B\u5F55");
@@ -65,7 +65,7 @@ public class adminFrame extends JFrame {
 		});
 		mnNewMenu.add(mntmNewMenuItem_4);
 		
-		JMenu mnNewMenu_1 = new JMenu("\u4E8B\u52A1");
+		JMenu mnNewMenu_1 = new JMenu("\u822A\u73ED\u4FE1\u606F\u7BA1\u7406");
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("\u5220\u9664\u822A\u73ED\u4FE1\u606F");
@@ -99,6 +99,41 @@ public class adminFrame extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mntmNewMenuItem);
+		
+		JMenu mnNewMenu_2 = new JMenu("\u7528\u6237\u4FE1\u606F\u7BA1\u7406");
+		menuBar.add(mnNewMenu_2);
+		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("\u6D4F\u89C8\u7528\u6237\u4FE1\u606F");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ViewUserinfoActionPerformed(e);
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_5);
+		
+		JMenuItem mntmNewMenuItem_6 = new JMenuItem("\u4FEE\u6539\u7528\u6237\u4FE1\u606F");
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updateUserInfoActionPerformed(e);
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_6);
+		
+		JMenuItem mntmNewMenuItem_7 = new JMenuItem("\u5F55\u5165\u7528\u6237\u4FE1\u606F");
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addUserInfoActionPerformed(e);
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_7);
+		
+		JMenuItem mntmNewMenuItem_8 = new JMenuItem("\u5220\u9664\u7528\u6237\u4FE1\u606F");
+		mntmNewMenuItem_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				deleteUserinfoActionPerformed(e);
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_8);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -110,7 +145,38 @@ public class adminFrame extends JFrame {
 		contentPane.add(table);
 	}
 
-	
+	//修改用户信息事件
+	protected void updateUserInfoActionPerformed(ActionEvent e) {
+		UpdateUserInfoFrame uuif = new UpdateUserInfoFrame();
+		uuif.setVisible(true);
+		table.add(uuif);
+		
+	}
+
+	//添加用户信息事件
+	protected void addUserInfoActionPerformed(ActionEvent e) {
+		insertUserInfoFrame iuif = new insertUserInfoFrame();
+		iuif.setVisible(true);
+		table.add(iuif);
+		
+	}
+
+	//浏览用户信息
+	protected void ViewUserinfoActionPerformed(ActionEvent e) {
+		UserSelected us = new UserSelected();
+		us.setVisible(true);
+		table.add(us);
+		
+	}
+
+	//删除用户信息
+	protected void deleteUserinfoActionPerformed(ActionEvent e) {
+		DeleteUserFrame duf = new DeleteUserFrame();
+		duf.setVisible(true);
+		table.add(duf);
+		
+	}
+
 	//修改密码事件
 	protected void updatepwdActionPerformed(ActionEvent e) {
 		UpdatePWD up = new UpdatePWD();

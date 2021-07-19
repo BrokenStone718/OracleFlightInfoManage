@@ -13,9 +13,14 @@ import utils.jdbc_utils;
 
 public class UserDAO {
 
-	public static int login(String username, String pwd,String userID) {
-		String sql = "select * from user_info where \"USERNAME\" = ? and \"PASSWORD\" = ? and \"INFO\"=?";
-		int i = jdbc_utils.executeUpdate(sql,username,pwd,userID);
+	public static int userlogin(String username, String pwd) {
+		String sql = "select * from user_info where \"USERNAME\" = ? and \"PASSWORD\" = ? ";
+		int i = jdbc_utils.executeUpdate(sql,username,pwd);
+		return i;
+	}
+	public static int adminlogin(String username, String pwd) {
+		String sql = "select * from admin_info where \"USERNAME\" = ? and \"PASSWORD\" = ? ";
+		int i = jdbc_utils.executeUpdate(sql,username,pwd);
 		return i;
 	}
 
@@ -157,16 +162,17 @@ public class UserDAO {
 
 	
 
-	public static List<Userinfo> getUserList(String username, String oldpwd) {
-		String sql = "select * from user_info where \"USERNAME\"= ? and \"PASSWORD\" = ?";
-		ResultSet rs = jdbc_utils.executeQueryRS(sql, username,oldpwd);
+	public static List<Userinfo> getUserList() {
+		String sql = "select * from user_info";
+		ResultSet rs = jdbc_utils.executeQueryRS(sql, null);
 		List<Userinfo> list = new ArrayList<Userinfo>();
 		try {
 			while(rs.next()) {
 				String USERNAME = rs.getString("USERNAME");
 				String PASSWORD = rs.getString("PASSWORD");
-				Userinfo ui = new Userinfo(USERNAME,PASSWORD);
-				
+				String ID = rs.getString("ID");
+				Userinfo ui = new Userinfo(USERNAME,PASSWORD,ID);
+				list.add(ui);
 			}
 		} catch (SQLException e) {
 			
@@ -188,5 +194,22 @@ public class UserDAO {
 		int j = jdbc_utils.executeUpdate(sql, username,oldpwd);
 		return j;
 	}
+	public static int deleteUserInfo(String username, String pwd) {
+		String sql = "delete from user_info where \"USERNAME\" = ? and \"PASSWORD\" = ?";
+		int i = jdbc_utils.executeUpdate(sql, username,pwd);
+		return i;
+	}
+	public static int insertUserInfo(String username, String pwd) {
+		String sql = "insert into user_info (\"USERNAME\",\"PASSWORD\") values (?,?)";
+		int i = jdbc_utils.executeUpdate(sql, username,pwd);
+		return i;
+	}
+	public static int updateUserInfo(String username, String pwd,String id) {
+		String sql = "update user_info set \"USERNAME\" = ?,\"PASSWORD\" = ? where \"ID\" = ?";
+		int i = jdbc_utils.executeUpdate(sql, username,pwd,id);
+		return i;
+	}
+
+
 
 }
