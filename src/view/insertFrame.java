@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 
 import DAO.UserDAO;
+import utils.StringTools;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -92,7 +93,7 @@ public class insertFrame extends JInternalFrame {
 		lblNewLabel_6.setBounds(67, 283, 76, 22);
 		getContentPane().add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel("\u9884\u8BA1\u98DE\u884C\u65F6\u95F4");
+		JLabel lblNewLabel_7 = new JLabel("\u9884\u8BA1\u8D77\u98DE\u65F6\u95F4");
 		lblNewLabel_7.setIcon(new ImageIcon(insertFrame.class.getResource("/image/\u5EF6\u8BEF.png")));
 		lblNewLabel_7.setFont(new Font("宋体", Font.PLAIN, 14));
 		lblNewLabel_7.setBounds(24, 317, 119, 22);
@@ -173,6 +174,70 @@ public class insertFrame extends JInternalFrame {
 		String SC = SCtxt.getText();
 		String EC = ECtxt.getText();
 		String SD = SDtxt.getText();
+		if(StringTools.isEmpty(HB)) {
+			JOptionPane.showMessageDialog(null, "输入不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckHBH(HB)) {
+			JOptionPane.showMessageDialog(null, "航班号格式错误");
+			return;
+		}
+		if(StringTools.isEmpty(HJ)) {
+			JOptionPane.showMessageDialog(null, "输入不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckHJT(HJ)) {
+			JOptionPane.showMessageDialog(null, "候机厅格式错误");
+			return;
+		}
+		if(StringTools.isEmpty(HZ)) {
+			JOptionPane.showMessageDialog(null, "输入不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckHZL(HZ)) {
+			JOptionPane.showMessageDialog(null, "航站楼格式错误");
+			return;
+		}
+		if(StringTools.isEmpty(JZ)) {
+			JOptionPane.showMessageDialog(null, "输入不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckJZXM(JZ)) {
+			JOptionPane.showMessageDialog(null, "机长姓名格式错误");
+			return;
+		}
+		if(StringTools.isEmpty(YW)) {
+			JOptionPane.showMessageDialog(null, "输入不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckSFYW(YW)) {
+			JOptionPane.showMessageDialog(null, "是否延误格式错误");
+			return;
+		}
+		if(StringTools.isEmpty(SC)) {
+			JOptionPane.showMessageDialog(null, "输入不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckCity(SC)) {
+			JOptionPane.showMessageDialog(null, "城市格式错误");
+			return;
+		}
+		if(StringTools.isEmpty(EC)) {
+			JOptionPane.showMessageDialog(null, "输入不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckCity(EC)) {
+			JOptionPane.showMessageDialog(null, "城市格式错误");
+			return;
+		}
+		if(StringTools.isEmpty(SD)) {
+			JOptionPane.showMessageDialog(null, "输入不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckDate(SD)) {
+			JOptionPane.showMessageDialog(null, "日期格式错误");
+			return;
+		}
 		int i = UserDAO.insert(HB,HJ,HZ,JZ,YW,SC,EC,SD);
 		if(i!=0) {
 			JOptionPane.showMessageDialog(null, "录入成功");

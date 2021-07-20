@@ -106,6 +106,10 @@ public class EcSelect extends JInternalFrame {
 			JOptionPane.showMessageDialog(null, "不能为空");
 			return;
 		}
+		if(!StringTools.rexCheckCity(ec)) {
+			JOptionPane.showMessageDialog(null, "城市格式错误");
+			return;
+		}
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);//设置成0行
 		List<Flight> b = UserDAO.getECList(ec);

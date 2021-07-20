@@ -106,6 +106,10 @@ public class SelectHBH extends JInternalFrame {
 			JOptionPane.showMessageDialog(null, "不能为空");
 			return;
 		}
+		if(!StringTools.rexCheckHBH(hbh)) {
+			JOptionPane.showMessageDialog(null, "航班号格式错误");
+			return;
+		}
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);//设置成0行
 		List<Flight> b = UserDAO.getHBHList(hbh);
