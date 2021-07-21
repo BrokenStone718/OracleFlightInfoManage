@@ -44,8 +44,6 @@ public class DBTools {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}		
-		}
-		
+		}	
 	}
-
 }

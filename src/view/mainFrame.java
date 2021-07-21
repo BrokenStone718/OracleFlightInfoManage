@@ -71,22 +71,22 @@ public class mainFrame extends JFrame {
 		JLabel userName = new JLabel("\u7528\u6237\u540D");
 		userName.setFont(new Font("ËÎÌו", Font.PLAIN, 16));
 		userName.setIcon(new ImageIcon(mainFrame.class.getResource("/image/\u7528\u6237\u540D (1).png")));
-		userName.setBounds(77, 174, 81, 32);
+		userName.setBounds(105, 170, 81, 32);
 		contentPane.add(userName);
 		
 		userText = new JTextField();
-		userText.setBounds(168, 176, 239, 32);
+		userText.setBounds(196, 172, 239, 32);
 		contentPane.add(userText);
 		userText.setColumns(10);
 		
 		JLabel passWord = new JLabel("\u5BC6\u7801");
 		passWord.setIcon(new ImageIcon(mainFrame.class.getResource("/image/\u5BC6 \u7801.png")));
 		passWord.setFont(new Font("ËÎÌו", Font.PLAIN, 14));
-		passWord.setBounds(96, 248, 63, 21);
+		passWord.setBounds(124, 244, 63, 21);
 		contentPane.add(passWord);
 		
 		pwdText = new JPasswordField();
-		pwdText.setBounds(168, 243, 239, 32);
+		pwdText.setBounds(196, 239, 239, 32);
 		contentPane.add(pwdText);
 		ButtonGroup bp = new ButtonGroup();
 		JButton loginButton = new JButton("\u767B\u9646");
@@ -96,7 +96,7 @@ public class mainFrame extends JFrame {
 			}
 		});
 		loginButton.setIcon(new ImageIcon(mainFrame.class.getResource("/image/\u767B\u9646.png")));
-		loginButton.setBounds(123, 359, 113, 32);
+		loginButton.setBounds(151, 355, 113, 32);
 		contentPane.add(loginButton);
 		JButton regButton = new JButton("\u6CE8\u518C");
 		regButton.setIcon(new ImageIcon(mainFrame.class.getResource("/image/\u6CE8\u518C.png")));
@@ -105,12 +105,12 @@ public class mainFrame extends JFrame {
 				regActionPerformed(e);
 			}
 		});
-		regButton.setBounds(310, 359, 113, 32);
+		regButton.setBounds(338, 355, 113, 32);
 		contentPane.add(regButton);
 		IDconfirm = new JComboBox();
 		IDconfirm.setModel(new DefaultComboBoxModel(new String[] {"\u7BA1\u7406\u5458", "\u7528\u6237"}));
 		IDconfirm.setToolTipText("");
-		IDconfirm.setBounds(234, 309, 91, 23);
+		IDconfirm.setBounds(262, 305, 91, 23);
 		contentPane.add(IDconfirm);
 	}
 	

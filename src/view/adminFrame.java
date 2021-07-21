@@ -57,14 +57,6 @@ public class adminFrame extends JFrame {
 		});
 		mnNewMenu.add(out);
 		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("\u4FEE\u6539\u5BC6\u7801");
-		mntmNewMenuItem_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				updatepwdActionPerformed(e);
-			}
-		});
-		mnNewMenu.add(mntmNewMenuItem_4);
-		
 		JMenu mnNewMenu_1 = new JMenu("\u822A\u73ED\u4FE1\u606F\u7BA1\u7406");
 		menuBar.add(mnNewMenu_1);
 		
@@ -174,14 +166,6 @@ public class adminFrame extends JFrame {
 		DeleteUserFrame duf = new DeleteUserFrame();
 		duf.setVisible(true);
 		table.add(duf);
-		
-	}
-
-	//ÐÞ¸ÄÃÜÂëÊÂ¼þ
-	protected void updatepwdActionPerformed(ActionEvent e) {
-		UpdatePWD up = new UpdatePWD();
-		up.setVisible(true);
-		table.add(up);
 		
 	}
 

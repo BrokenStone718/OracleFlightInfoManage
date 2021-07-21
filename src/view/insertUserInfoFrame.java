@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 
 import DAO.UserDAO;
+import utils.StringTools;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -93,6 +94,22 @@ public class insertUserInfoFrame extends JInternalFrame {
 	protected void addUserInfoActionPerformed(ActionEvent e) {
 		String username = userTXT.getText();
 		String pwd = pwdTXT.getText();
+		if(StringTools.isEmpty(username)) {
+			JOptionPane.showMessageDialog(null, "用户名不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckUserName(username)) {
+			JOptionPane.showMessageDialog(null, "用户名格式不规范");
+			return;
+		}
+		if(StringTools.isEmpty(pwd)) {
+			JOptionPane.showMessageDialog(null, "密码不能为空");
+			return;
+		}
+		if(!StringTools.rexCheckPassword(pwd)) {
+			JOptionPane.showMessageDialog(null, "密码格式不规范");
+			return;
+		}
 		
 		int i = UserDAO.insertUserInfo(username,pwd);
 		if(i!=0) {
