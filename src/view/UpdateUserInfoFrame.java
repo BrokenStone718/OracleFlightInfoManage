@@ -131,6 +131,7 @@ public class UpdateUserInfoFrame extends JInternalFrame {
 		idTXT.setEditable(false);
 		getContentPane().add(idTXT);
 		fillTable();
+		
 	}
 
 	protected void addUserInfoActionPerformed(ActionEvent e) {

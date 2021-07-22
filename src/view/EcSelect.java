@@ -96,7 +96,7 @@ public class EcSelect extends JInternalFrame {
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 14));
 		btnNewButton_1.setBounds(101, 380, 140, 40);
 		getContentPane().add(btnNewButton_1);
-
+		
 	}
 
 	//按目的地查询事件
@@ -113,7 +113,7 @@ public class EcSelect extends JInternalFrame {
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);//设置成0行
 		List<Flight> b = UserDAO.getECList(ec);
-		if(b==null) {
+		if(b.size()==0) {
 			JOptionPane.showMessageDialog(null, "无此航班信息");
 		}else {
 			for(Flight f:b) {

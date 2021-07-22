@@ -189,6 +189,7 @@ public class UpdateFrame extends JInternalFrame {
 		btnNewButton_1.setBounds(355, 448, 125, 39);
 		getContentPane().add(btnNewButton_1);
 		fillTable();
+		
 	}
 	protected void updateActionPerformed(ActionEvent e) {
 		String HBH = HBHtxt.getText();

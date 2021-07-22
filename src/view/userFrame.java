@@ -44,6 +44,7 @@ public class userFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public userFrame() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 733, 556);
 		
@@ -88,6 +89,7 @@ public class userFrame extends JFrame {
 		table.setBackground(Color.WHITE);
 		table.setBounds(10, 10, 687, 486);
 		contentPane.add(table);
+		this.setLocationRelativeTo(null);//居中显示
 	}
 
 	//修改密码事务

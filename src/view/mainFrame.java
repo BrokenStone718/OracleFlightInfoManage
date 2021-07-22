@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.ButtonGroup;
@@ -112,6 +113,7 @@ public class mainFrame extends JFrame {
 		IDconfirm.setToolTipText("");
 		IDconfirm.setBounds(262, 305, 91, 23);
 		contentPane.add(IDconfirm);
+		this.setLocationRelativeTo(null);//居中显示
 	}
 	
 	//登陆事件处理
@@ -137,6 +139,7 @@ public class mainFrame extends JFrame {
 		String authorization = IDconfirm.getSelectedItem().toString();
 		if(authorization.equals("管理员")) {//管理员登陆
 			int i = UserDAO.adminlogin(username,pwd);
+			
 			if(i!=0) {//登陆成功
 				JOptionPane.showMessageDialog(null, "登陆成功");
 				this.dispose();
@@ -148,6 +151,7 @@ public class mainFrame extends JFrame {
 		}else {//普通用户登陆
 			
 			int i = UserDAO.userlogin(username,pwd);
+			System.out.println(i);
 			if(i!=0) {//登陆成功
 				JOptionPane.showMessageDialog(null, "登陆成功");
 				this.dispose();

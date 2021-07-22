@@ -158,7 +158,7 @@ public class insertFrame extends JInternalFrame {
 		btnNewButton_1.setIcon(new ImageIcon(insertFrame.class.getResource("/image/\u8FD4\u56DE.png")));
 		btnNewButton_1.setBounds(274, 377, 119, 35);
 		getContentPane().add(btnNewButton_1);
-
+		
 	}
 
 	protected void returnActionPerformed(ActionEvent e) {

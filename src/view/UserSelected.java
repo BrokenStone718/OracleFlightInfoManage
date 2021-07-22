@@ -70,7 +70,7 @@ public class UserSelected extends JInternalFrame {
 		btnNewButton.setBounds(151, 279, 122, 28);
 		getContentPane().add(btnNewButton);
 		fillTable();
-
+		
 	}
 	//·µ»ØÊÂ¼þ
 	protected void returnActionPerformed(ActionEvent e) {

@@ -116,6 +116,7 @@ public class UpdatePWD extends JInternalFrame {
 		Username.setColumns(10);
 		Username.setBounds(208, 65, 189, 34);
 		getContentPane().add(Username);
+		
 
 	}
 

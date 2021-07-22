@@ -194,6 +194,7 @@ public class DeleteFrame extends JInternalFrame {
 		MDDtxt.setBounds(452, 394, 120, 21);
 		getContentPane().add(MDDtxt);
 		fillTable();
+		
 	}
 
 	protected void deleteActionPerformed(ActionEvent e) {

@@ -98,6 +98,7 @@ public class DateSelect extends JInternalFrame {
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 14));
 		btnNewButton_1.setBounds(103, 381, 140, 40);
 		getContentPane().add(btnNewButton_1);
+		
 
 	}
 
@@ -116,7 +117,7 @@ public class DateSelect extends JInternalFrame {
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);//设置成0行
 		List<Flight> b = UserDAO.getDATEList(dt);
-		if(b==null) {
+		if(b.size()==0) {
 			JOptionPane.showMessageDialog(null, "无此航班信息");
 		}else {
 			for(Flight f:b) {

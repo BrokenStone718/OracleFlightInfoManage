@@ -40,6 +40,7 @@ public class adminFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public adminFrame() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 726, 620);
 		
@@ -121,7 +122,7 @@ public class adminFrame extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("\u5220\u9664\u7528\u6237\u4FE1\u606F");
 		mntmNewMenuItem_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {//删除用户信息事件
 				deleteUserinfoActionPerformed(e);
 			}
 		});
@@ -135,6 +136,7 @@ public class adminFrame extends JFrame {
 		table.setBackground(Color.WHITE);
 		table.setBounds(10, 10, 692, 565);
 		contentPane.add(table);
+		this.setLocationRelativeTo(null);//居中显示
 	}
 
 	//修改用户信息事件

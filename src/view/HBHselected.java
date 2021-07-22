@@ -70,7 +70,7 @@ public class HBHselected extends JInternalFrame {
 		btnNewButton.setBounds(198, 332, 97, 36);
 		getContentPane().add(btnNewButton);
 		fillTable();
-
+		
 	}
 	//·µ»ØÊÂ¼þ
 	protected void returnActionPerformed(ActionEvent e) {

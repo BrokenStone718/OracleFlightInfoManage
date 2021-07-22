@@ -23,19 +23,16 @@ public class UserDAO {
 		int i = jdbc_utils.executeUpdate(sql,username,pwd);
 		return i;
 	}
-
 	public static int reg(String username, String pwd) {
 		String sql = "insert into user_info(\"USERNAME\",\"PASSWORD\") values(?,?)";
 		int i = jdbc_utils.executeUpdate(sql, username,pwd);
 		return i;
 	}
-
 	public static int insert(String hB, String hJ, String hZ, String jZ, String yW, String sC, String eC, String sD) {
 		String sql = "insert into flight_info(\"HBH\",\"HZL\",\"JZXM\",\"SFYW\",\"YJFXSJ\",\"SFCS\",\"MDD\",\"HJT\") values (?,?,?,?,?,?,?,?)";
 		int i = jdbc_utils.executeUpdate(sql, hB,hZ,jZ,yW,sD,sC,eC,hJ);
 		return i;
 	}
-
 	public static List<Flight> getHBHList(String hbh) {
 		String sql = "select * from flight_info where \"HBH\" = ?";
 		ResultSet rs = jdbc_utils.executeQueryRS(sql, hbh);
@@ -62,7 +59,6 @@ public class UserDAO {
 		
 		return list;
 	}
-
 	public static List<Flight> getECList(String ec) {
 		
 		String sql = "select * from flight_info where \"MDD\" = ?";
@@ -90,7 +86,6 @@ public class UserDAO {
 		
 		return list;
 	}
-
 	public static List<Flight> getDATEList(String dt) {
 		String sql = "select * from flight_info where \"YJFXSJ\" = ?";
 		ResultSet rs = jdbc_utils.executeQueryRS(sql, dt);
@@ -117,7 +112,6 @@ public class UserDAO {
 		
 		return list;
 	}
-
 	public static List<Flight> getList() {
 		String sql = "select * from flight_info";
 		ResultSet rs = jdbc_utils.executeQueryRS(sql, null);
@@ -145,7 +139,6 @@ public class UserDAO {
 		return list;
 		
 	}
-
 	public static int delete(String hBH, String hZL, String hJT, String jZXM, String yJFXSJ, String sFYW, String sFCS,
 			String mDD) {
 		String sql = "delete from flight_info where \"HBH\"= ? and \"HZL\"= ? and \"HJT\"= ? and \"JZXM\" = ? and \"SFYW\" = ? and \"YJFXSJ\" = ? and \"SFCS\" = ? and \"MDD\" = ? ";
@@ -159,11 +152,8 @@ public class UserDAO {
 		int i = jdbc_utils.executeUpdate(sql,hZL,hJT,jZXM,sFYW,yJFXSJ,sFCS,mDD,hBH);
 		return i;
 	}
-
-	
-
 	public static List<Userinfo> getUserList() {
-		String sql = "select * from user_info";
+		String sql = "select * from user_info order by \"ID\"";
 		ResultSet rs = jdbc_utils.executeQueryRS(sql, null);
 		List<Userinfo> list = new ArrayList<Userinfo>();
 		try {
@@ -209,7 +199,4 @@ public class UserDAO {
 		int i = jdbc_utils.executeUpdate(sql, username,pwd,id);
 		return i;
 	}
-
-
-
 }

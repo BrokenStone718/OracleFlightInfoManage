@@ -87,7 +87,7 @@ public class insertUserInfoFrame extends JInternalFrame {
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 14));
 		btnNewButton_1.setBounds(262, 205, 97, 33);
 		getContentPane().add(btnNewButton_1);
-
+		
 	}
 
 	//录入用户信息

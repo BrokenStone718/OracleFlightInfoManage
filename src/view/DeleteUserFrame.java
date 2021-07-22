@@ -129,6 +129,7 @@ public class DeleteUserFrame extends JInternalFrame {
 		idTXT.setBounds(77, 374, 103, 26);
 		getContentPane().add(idTXT);
 		fillTable();
+		
 
 	}
 	//删除用户信息事件

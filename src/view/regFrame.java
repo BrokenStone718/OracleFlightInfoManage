@@ -116,6 +116,7 @@ public class regFrame extends JFrame {
 		btnNewButton_1.setIcon(new ImageIcon(regFrame.class.getResource("/image/\u91CD\u7F6E.png")));
 		btnNewButton_1.setBounds(278, 263, 97, 38);
 		contentPane.add(btnNewButton_1);
+		this.setLocationRelativeTo(null);//æ”÷–œ‘ æ
 	}
 
 	protected void reSetActionPerformed() {

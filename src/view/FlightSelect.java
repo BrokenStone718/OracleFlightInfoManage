@@ -73,6 +73,7 @@ public class FlightSelect extends JInternalFrame {
 		btnNewButton_3.setIcon(new ImageIcon(FlightSelect.class.getResource("/image/\u8FD4\u56DE.png")));
 		btnNewButton_3.setBounds(201, 302, 97, 36);
 		getContentPane().add(btnNewButton_3);
+		
 
 	}
 
